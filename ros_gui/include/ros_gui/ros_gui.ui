@@ -6,25 +6,38 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>388</width>
+    <height>261</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>180</y>
-     <width>161</width>
-     <height>61</height>
+     <x>30</x>
+     <y>60</y>
+     <width>311</width>
+     <height>101</height>
     </rect>
    </property>
-   <property name="text">
-    <string>PushButton</string>
-   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QPushButton" name="pushButton">
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButton2">
+      <property name="text">
+       <string>PushButton2</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>
