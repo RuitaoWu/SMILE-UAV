@@ -9,9 +9,9 @@ RosGui::RosGui(QWidget *parent) :
   nh.reset(new ros::NodeHandle("~"));
 
   //subscrib
-  // std::string listen_topic;
-  // nh->param<std::string>("listen_topic",listen_topic,"sub");
-  // sub = nh->subscribe<std_msgs::String>(listen_topic, 1, &RosGui::chatterCallback, this);
+  std::string listen_topic;
+  nh->param<std::string>("listen_topic",listen_topic,"sub");
+  sub = nh->subscribe<std_msgs::String>(listen_topic, 1, &RosGui::chatterCallback, this);
 
   //publish a message
   std::string hello_topic;
@@ -24,14 +24,15 @@ RosGui::~RosGui()
   delete ui;
 }
 void RosGui::spinOnce(){
-  if(ros::ok()){ros::spinOnce();
+  if(ros::ok()){
+    ros::spinOnce();
   }else{
     QApplication::quit();
   }
 }
 void RosGui::chatterCallback(const std_msgs::String::ConstPtr &msg){
-    ROS_INFO("I heard: [%s]", msg->data.c_str());
-
+    auto qstring_msg = QString::fromStdString( msg->data.c_str() );
+    ROS_INFO("%s",msg->data.c_str() );
 }
 
 void RosGui::on_pushButton_clicked(){
@@ -41,14 +42,10 @@ void RosGui::on_pushButton_clicked(){
   msg.data=ss.str();
   ROS_INFO("%s", msg.data.c_str());
 
-  // pub.publish(msg);
+  pub.publish(msg);
 }
 void RosGui::on_pushButton2_clicked(){
-  std_msgs::String msg;
-  std::stringstream ss;
-  ss <<"test message 2";
-  msg.data=ss.str();
-  // ROS_INFO("");
-  ROS_INFO("test message: %s", msg.data.c_str());
-
+  std::string listen_topic;
+  nh->param<std::string>("listen_topic",listen_topic,"sub");
+  sub = nh->subscribe<std_msgs::String>(listen_topic, 1, &RosGui::chatterCallback, this);
 }

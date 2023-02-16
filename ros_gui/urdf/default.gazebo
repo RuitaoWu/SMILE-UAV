@@ -61,7 +61,7 @@
 			<plugin name="camera_controller" filename="libgazebo_ros_camera.so" >
 				<alwaysOn>true</alwaysOn>
 				<updateRate>0.0</updateRate>
-				<cameraName>Kwad/camera1</cameraName>
+				<cameraName>default/camera1</cameraName>
 				<imageTopicName>image_raw</imageTopicName>
 				<cameraInfoTopicName>camera_info</cameraInfoTopicName>
 				<frameName>camera_link</frameName>
@@ -200,7 +200,7 @@
 	<!-- Load the gazebo_ros_control plugin -->
 	<gazebo>
 		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-			<robotNameSpace>/Kwad</robotNameSpace>
+			<robotNameSpace>/default</robotNameSpace>
 			<robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
 		</plugin>
 	</gazebo>

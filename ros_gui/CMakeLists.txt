@@ -142,7 +142,10 @@ foreach(NODE_FILE ${NODES})
   list(APPEND NODE_LIST ${NODE_NAME})
 
 endforeach(NODE_FILE)
-
+# add_executable(${PROJECT_NAME}_node src/listener.cpp)
+# add_dependencies(${NODE_NAME} ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# target_link_libraries (${NODE_NAME} ${catkin_LIBRARIES}  ${EXTERNAL_DEPENDS_LIB})
+# target_include_directories(${NODE_NAME} PRIVATE "include/${PROJECT_NAME}/")
 
 install(TARGETS ${NODE_LIST}
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})

@@ -17,7 +17,7 @@ int main(int argc, char **argv)
   ros::Rate loop_rate(10);
 
   int count = 0;
-  while (ros::ok())
+ while (ros::ok())
   {
 
     std_msgs::String msg;
@@ -33,7 +33,7 @@ int main(int argc, char **argv)
     ros::spinOnce();
 
     loop_rate.sleep();
-    ++count;
+    count++;
   }
 
 
