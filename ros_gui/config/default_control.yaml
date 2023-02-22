@@ -1,5 +1,28 @@
 #######################################################
-#########################1st version
+joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+joint_motor1_controller:
+    type: effort_controllers/JointPositionController
+    joint: joint_front_right_prop
+    pid: {p: 10000.0, i: 1.0, d: 1000.0}
+
+joint_motor2_controller:
+    type: effort_controllers/JointPositionController
+    joint: joint_front_left_prop
+    pid: {p: 10000.0, i: 1.0, d: 1000.0}
+    
+joint_motor3_controller:
+    type: effort_controllers/JointPositionController
+    joint: joint_back_left_prop
+    pid: {p: 10000.0, i: 1.0, d: 1000.0}
+
+joint_motor4_controller:
+    type: effort_controllers/JointPositionController
+    joint: joint_back_right_prop
+    pid: {p: 10000.0, i: 1.0, d: 1000.0}
+#######################################################
+
 # joint_state_controller:
 #     type: joint_state_controller/JointStateController
 #     publish_rate: 50
@@ -17,31 +40,31 @@
 #         joint_back_left_prop: {p: 10000, i: 1, d: 1000}
 #         joint_back_right_prop: {p: 10000, i: 1, d: 1000}
 #############################################################
-#########################2nd version#########################
+
 #publish all joint states
-ros_gui:
-    joint_state_controller:
-        type: joint_state_controller/JointStateController
-        publish_rate: 50
-#position controller
-joint_motor_controller:
-    type: velocity_controllers/JointGroupVelocityController
-    joint: joint_front_right_prop
-    pid: {p: 1000, i: 1, d: 1000}
-joint_motor_controller:
-    type: velocity_controllers/JointGroupVelocityController
-    joint: joint_front_left_prop
-    pid: {p: 1000, i: 1, d: 1000}
-joint_motor_controller:
-    type: velocity_controllers/JointGroupVelocityController
-    joint: joint_back_left_prop
-    pid: {p: 1000, i: 1, d: 1000}
-joint_motor_controller:
-    type: velocity_controllers/JointGroupVelocityController
-    joint: joint_back_right_prop
-    pid: {p: 1000, i: 1, d: 1000}
+# ros_gui:
+#     joint_state_controller:
+#         type: joint_state_controller/JointStateController
+#         publish_rate: 50
+# #position controller
+# joint_motor_controller:
+#     type: velocity_controllers/JointGroupVelocityController
+#     joint: joint_front_right_prop
+#     pid: {p: 1000, i: 1, d: 1000}
+# joint_motor_controller:
+#     type: velocity_controllers/JointGroupVelocityController
+#     joint: joint_front_left_prop
+#     pid: {p: 1000, i: 1, d: 1000}
+# joint_motor_controller:
+#     type: velocity_controllers/JointGroupVelocityController
+#     joint: joint_back_left_prop
+#     pid: {p: 1000, i: 1, d: 1000}
+# joint_motor_controller:
+#     type: velocity_controllers/JointGroupVelocityController
+#     joint: joint_back_right_prop
+#     pid: {p: 1000, i: 1, d: 1000}
 ###################################################
-#######################3rd version
+
 # /gazebo_ros_control:
 #     pid_gains:
 #         joint_front_right_prop:
