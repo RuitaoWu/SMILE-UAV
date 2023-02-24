@@ -35,17 +35,58 @@ void RosGui::chatterCallback(const std_msgs::String::ConstPtr &msg){
     ROS_INFO("%s",msg->data.c_str() );
 }
 
-void RosGui::on_pushButton_clicked(){
+void RosGui::on_upButton_clicked(){
   std_msgs::String msg;
   std::stringstream ss;
-  ss <<"test message";
+  ss <<"up button";
   msg.data=ss.str();
   ROS_INFO("%s", msg.data.c_str());
 
   pub.publish(msg);
 }
-void RosGui::on_pushButton2_clicked(){
-  std::string listen_topic;
-  nh->param<std::string>("listen_topic",listen_topic,"sub");
-  sub = nh->subscribe<std_msgs::String>(listen_topic, 1, &RosGui::chatterCallback, this);
+void RosGui::on_downButton_clicked(){
+  std_msgs::String msg;
+  std::stringstream ss;
+  ss <<"down button";
+  msg.data=ss.str();
+  ROS_INFO("%s", msg.data.c_str());
+
+  pub.publish(msg);
 }
+void RosGui::on_leftButton_clicked(){
+  std_msgs::String msg;
+  std::stringstream ss;
+  ss <<"left button";
+  msg.data=ss.str();
+  ROS_INFO("%s", msg.data.c_str());
+
+  pub.publish(msg);
+}
+void RosGui::on_rightButton_clicked(){
+  std_msgs::String msg;
+  std::stringstream ss;
+  ss <<"right button";
+  msg.data=ss.str();
+  ROS_INFO("%s", msg.data.c_str());
+
+  pub.publish(msg);
+}
+void RosGui::on_forwardButton_clicked(){
+  std_msgs::String msg;
+  std::stringstream ss;
+  ss <<"forward button";
+  msg.data=ss.str();
+  ROS_INFO("%s", msg.data.c_str());
+
+  pub.publish(msg);
+}
+void RosGui::on_backwardButton_clicked(){
+  std_msgs::String msg;
+  std::stringstream ss;
+  ss <<"backward button";
+  msg.data=ss.str();
+  ROS_INFO("%s", msg.data.c_str());
+
+  pub.publish(msg);
+}
+

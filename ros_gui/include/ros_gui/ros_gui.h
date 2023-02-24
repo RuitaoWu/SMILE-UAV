@@ -19,8 +19,13 @@ public:
 public slots:
     void spinOnce();
 private slots:
-    void on_pushButton_clicked();
-    void on_pushButton2_clicked();
+    void on_upButton_clicked();
+    void on_downButton_clicked();
+    void on_leftButton_clicked();
+    void on_rightButton_clicked();
+    void on_forwardButton_clicked();
+    void on_backwardButton_clicked();
+
 
 private:
   Ui::RosGui *ui;
