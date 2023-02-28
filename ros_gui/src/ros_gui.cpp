@@ -32,7 +32,9 @@ void RosGui::spinOnce(){
 }
 void RosGui::chatterCallback(const std_msgs::String::ConstPtr &msg){
     auto qstring_msg = QString::fromStdString( msg->data.c_str() );
+    ui->listener->setText(qstring_msg);
     ROS_INFO("%s",msg->data.c_str() );
+
 }
 
 void RosGui::on_upButton_clicked(){
@@ -70,6 +72,7 @@ void RosGui::on_rightButton_clicked(){
   ROS_INFO("%s", msg.data.c_str());
 
   pub.publish(msg);
+
 }
 void RosGui::on_forwardButton_clicked(){
   std_msgs::String msg;
@@ -89,4 +92,21 @@ void RosGui::on_backwardButton_clicked(){
 
   pub.publish(msg);
 }
-
+void RosGui::on_startButton_clicked(){
+  std_msgs::String msg;
+  std::stringstream ss;
+  ss<<"Test message: start";
+  msg.data = ss.str();
+  pub.publish(msg);
+  // QString qstr = QString(msg.data.c_str());
+  ui->listener->setText(QString(msg.data.c_str()));
+  if(ui->startButton->text().compare("Start") == 0){
+    ui->startButton->setAutoFillBackground(true);
+    QPalette pal = ui->startButton->palette();
+    pal.setColor(QPalette::Button, QColor(Qt::red));
+    ui->startButton->setText(QString("Stop"));
+  }else{
+    ui->listener->setText(QString("Test message: stop"));
+    ui->startButton->setText(QString("Start"));
+  }
+}

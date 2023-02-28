@@ -25,6 +25,7 @@ private slots:
     void on_rightButton_clicked();
     void on_forwardButton_clicked();
     void on_backwardButton_clicked();
+    void on_startButton_clicked();
 
 
 private:
