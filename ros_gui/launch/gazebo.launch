@@ -17,9 +17,7 @@
 		
 		<rosparam file="$(find ros_gui)/config/default_control.yaml" command="load" ns="/default" />
 		
-		<node name="control_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" 
-		args="--namespace=/default joint_state_controller 
-		joint_motor_controller" />
+		<node name="control_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="--namespace=/default joint_state_controller joint_motor_controller" />
 		
 		<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">	
 			<param name="publish_frequency" type="double" value="5.0" />

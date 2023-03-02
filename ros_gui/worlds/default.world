@@ -1,7 +1,8 @@
 <?xml_version="1.0" ?>
 <sdf version="1.4">
 	<world name="default">
-	
+		<use_sim_time>0
+		</use_sim_time>
 		<scene>
 			<sky>
 				<clouds>
