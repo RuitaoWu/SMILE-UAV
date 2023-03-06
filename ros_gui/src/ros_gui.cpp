@@ -32,7 +32,7 @@ void RosGui::spinOnce(){
 }
 void RosGui::chatterCallback(const std_msgs::String::ConstPtr &msg){
     auto qstring_msg = QString::fromStdString( msg->data.c_str() );
-    ui->listener->setText(qstring_msg);
+    ui->listener->setText("qstring_msg");
 
 }
 
@@ -41,6 +41,7 @@ void RosGui::on_upButton_clicked(){
   std::stringstream ss;
   ss <<"up button";
   msg.data=ss.str();
+  system("roslaunch ros_gui gazebo.launch");
   ROS_INFO("%s", msg.data.c_str());
 }
 void RosGui::on_downButton_clicked(){
@@ -84,6 +85,7 @@ void RosGui::on_startButton_clicked(){
   std_msgs::String msg;
   std::stringstream ss;
   ss<<"Test message: start";
+  system("rostopic pub -1 /default/joint_motor_controller/command std_msgs/Float64 50.0");
   msg.data = ss.str();
   //publish message
   pub.publish(msg);
