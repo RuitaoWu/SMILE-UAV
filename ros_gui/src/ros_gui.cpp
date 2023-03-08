@@ -85,7 +85,7 @@ void RosGui::on_startButton_clicked(){
   std_msgs::String msg;
   std::stringstream ss;
   ss<<"Test message: start";
-  system("rostopic pub -1 /default/joint_motor_controller/command std_msgs/Float64 50.0");
+  //system("rostopic pub -1 /default/joint_motor_controller/command std_msgs/Float64 50.0");
   msg.data = ss.str();
   //publish message
   pub.publish(msg);
