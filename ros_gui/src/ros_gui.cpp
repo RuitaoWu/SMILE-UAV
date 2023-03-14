@@ -41,7 +41,7 @@ void RosGui::on_upButton_clicked(){
   std::stringstream ss;
   ss <<"up button";
   msg.data=ss.str();
-  system("roslaunch ros_gui gazebo.launch");
+  //system("roslaunch ros_gui gazebo.launch");
   ROS_INFO("%s", msg.data.c_str());
 }
 void RosGui::on_downButton_clicked(){
@@ -84,8 +84,9 @@ void RosGui::on_backwardButton_clicked(){
 void RosGui::on_startButton_clicked(){
   std_msgs::String msg;
   std::stringstream ss;
-  ss<<"Test message: start";
-  //system("rostopic pub -1 /default/joint_motor_controller/command std_msgs/Float64 50.0");
+  ss<<"publish message";
+  system("rostopic pub /uav_pos geometry_msgs/Pose "{position: {x: 0.2, y: 0.1, z: 0.3}, orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}}"
+");
   msg.data = ss.str();
   //publish message
   pub.publish(msg);
